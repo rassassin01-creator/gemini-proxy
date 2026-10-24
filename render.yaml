@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: gemini-proxy
+    runtime: node
+    repo: https://github.com/rassassin01-creator/gemini-proxy
+    plan: free
+    region: oregon
+    healthCheckPath: /health
+    buildCommand: node --version
+    startCommand: node server.js
+    envVars:
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      # GEMINI_KEY: 在 Render 网页 Dashboard 里手动添加（避免密钥进仓库）
